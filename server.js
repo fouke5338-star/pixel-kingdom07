@@ -12,7 +12,7 @@ const io = new Server(server, {
   pingInterval: 25000,
   pingTimeout: 20000
 });
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(__dirname));
 app.get("/health", (_req, res) => res.json({ ok: true, service: "pixel-kingdoms" }));
 app.get("/api/qr", async (req, res) => {
   const value = String(req.query.data || "");
